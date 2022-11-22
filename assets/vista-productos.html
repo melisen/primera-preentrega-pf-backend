@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+
+<div id="divCards" class="divCardsEstilos">
+
+</div>
+
+<div id="divForm">
+<h1>Gestión de productos:</h1>
+    <form action="/api/productos" method="POST" >
+        <h2>Formulario de ingreso de nuevo producto:</h2>
+       <label for="nombre">Nombre de producto:</label> 
+       <input type="text"  name="nombre"><br>
+       <label for="descripcion">Descripción:</label> 
+       <input type="text"  name="descripcion"><br>
+       <label for="codigo">Código:</label> 
+       <input type="text"  name="codigo"><br>
+       <label for="foto">Foto (URL):</label> 
+       <input type="text"  name="foto"><br>
+       <label for="precio">Precio:</label> 
+       <input type="text"  name="precio"><br>
+       <label for="stock">Stock:</label> 
+       <input type="text"  name="stock"><br>
+       <input type="submit">
+    </form>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
