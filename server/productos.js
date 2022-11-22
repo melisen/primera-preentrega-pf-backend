@@ -1,4 +1,4 @@
-const { application } = require('express');
+
 const express = require('express');
 
 const {Router} = express;
@@ -24,14 +24,14 @@ const middlewareAdmin = (req, res, next)=>{
     router.get('/:id?',   async (req, res)=>{
             //no lleva el middleware de admin
             const {id} = req.params;
-            res.render("./assets/vista-productos.html")
-            /*if(id){
+
+            if(id){
                 const listaProductos = await productos.getById(id)
-                res.send({productos: listaProductos})
+                res.json({productos: listaProductos})
             }else{
                 const listaProductos = await productos.getAll()
-                res.send({productos: listaProductos})
-            }*/
+                res.json({productos: listaProductos})
+            }
             
 
         })
@@ -43,7 +43,7 @@ const middlewareAdmin = (req, res, next)=>{
         //middleware
         const {nombre, descripcion, codigo, foto, precio, stock} = req.body; 
         let agregarProd = await productos.save({nombre, timestamp: Date.now(), descripcion, codigo, foto, precio, stock});
-            res.send({agregado: agregarProd});
+            res.json({agregado: agregarProd});
         })
     
 
@@ -53,7 +53,7 @@ const middlewareAdmin = (req, res, next)=>{
             const {id} = req.params;
             const {nombre, descripcion, codigo, foto, precio, stock} = req.body;
             let reemplazo = await productos.replaceById(id, {nombre, timestamp: Date.now(), descripcion, codigo, foto, precio, stock})
-            res.send({prodReemplazado: reemplazo})
+            res.json({prodReemplazado: reemplazo})
         })
     
 
@@ -62,7 +62,7 @@ const middlewareAdmin = (req, res, next)=>{
             //middleware
             const {id} = req.params;
             let eliminarProd = await productos.deleteById(id);
-            res.send({eliminadoID: id})
+            res.json({eliminadoID: id})
     })
 
 module.exports = router;

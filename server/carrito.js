@@ -9,21 +9,21 @@ const carritos = new ClaseCarrito('./persistencia/carritos.json');
 routerCarrito.post('/', async (req, res)=>{
     const {nombre, descripcion, codigo, foto, precio, stock, id} = req.body;
     let nuevoCarrito =  await carritos.crearCarrito({nombre, descripcion, codigo, foto, precio, stock, id});
-    res.send({idNuevoCarrito: nuevoCarrito})
+    res.json({idNuevoCarrito: nuevoCarrito})
 
 })
 
 routerCarrito.delete('/:id', async (req, res)=>{
     const {id} = req.params
     let carritoEliminado = await carritos.deleteCarritoById(id)
-    res.send({carritoEliminado: id})
+    res.json({carritoEliminado: id})
 })
 
 
 routerCarrito.get('/:id/productos', async (req, res)=>{
 
     let listaProductos = await carritos.verTodosProd(id)
-    res.send({productos: listaProductos})
+    res.json({productos: listaProductos})
 })
 
 routerCarrito.post('/:id/productos', async (req, res)=>{

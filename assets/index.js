@@ -38,7 +38,7 @@ const mostrarProductos = (productos) =>{
 
 const recuperarProductos = () =>{
 fetch("http://localhost:8080/api/productos")
-        .then( (respuesta) => respuesta.json() )
+        .then( (respuesta) => respuesta.json())
         .then( (data) =>  mostrarProductos(data) ) 
         .catch((err)=>console.log(err))                                              
 }
