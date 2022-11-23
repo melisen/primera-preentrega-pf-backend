@@ -21,7 +21,7 @@ routerCarrito.delete('/:id', async (req, res)=>{
 
 
 routerCarrito.get('/:id/productos', async (req, res)=>{
-
+    const {id} = req.params;
     let listaProductos = await carritos.verTodosProd(id)
     res.json({productos: listaProductos})
 })

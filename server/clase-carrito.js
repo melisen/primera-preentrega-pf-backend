@@ -62,7 +62,7 @@ module.exports = class ClaseCarrito  {
             if(esteCarrito){
                 let productosPrevios = esteCarrito.productos;
                 let prodAgregado = productosPrevios.concat(nuevoProd);                
-                let carritoConProd = {...esteCarrito, productos:[...prodAgregado]};                
+                let carritoConProd = {...esteCarrito, productos:prodAgregado};                
                 let nuevoArrCarritos = arrCarritos.map(element=>{
                     if(element.id == idCarrito){
                         return {...carritoConProd};
@@ -70,9 +70,7 @@ module.exports = class ClaseCarrito  {
                         return element
                     }
                 })
-                
                 const stringNuevoArr = JSON.stringify(nuevoArrCarritos)
-                console.log(stringNuevoArr)
                 let escribirNuevoArr = await fs.promises.writeFile(this.nombreArchivo, stringNuevoArr)
             }else{
                 console.log('no existe ese carrito')

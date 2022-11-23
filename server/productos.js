@@ -10,7 +10,7 @@ const productos = new Contenedor('./persistencia/productos.json');
 
 
 //middleware
-let esAdmin = false;
+let esAdmin = true;
 const middlewareAdmin = (req, res, next)=>{
     if(esAdmin){
         next()
