@@ -36,11 +36,12 @@ const mostrarProductos = (productos) =>{
 
 
 
-const recuperarProductos = () =>{
-fetch("http://localhost:8080/api/productos")
+const recuperarProductos = async () =>{
+await fetch("http://localhost:8080/api/productos")
         .then( (respuesta) => respuesta.json())
         .then( (data) =>  mostrarProductos(data) ) 
-        .catch((err)=>console.log(err))                                              
+        .catch((err)=>console.log(err))     
+                                             
 }
 
 
